@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start page</title>
+    <script type="text/javascript">
+        function choose(id) {
+            if (id == 't2') {
+                document.getElementById('t2').hidden = true;
+                document.getElementById('l1').innerText = "Выбрана задач №2";
+                document.getElementsByName('dtask')[0].value = "task2";
+            } else {
+                document.getElementById('t2').hidden = false;
+                document.getElementById('l1').innerText = "Выбрана задач №1";
+                document.getElementsByName('dtask')[0].value = "task1";
+            }
+        }
+
+        function getParameters() {
+            if (document.getElementsByName('dtask')[0].value == 'task2') {
+                document.getElementsByName('darray1')[0].value = document.getElementsByName("array1")[0].value;
+                document.getElementsByName('darray2')[0].value = "";
+            } else {
+                document.getElementsByName('darray1')[0].value = document.getElementsByName("array1")[0].value;
+                document.getElementsByName('darray2')[0].value = document.getElementsByName("array2")[0].value;
+            }
+        }
+    </script>
+</head>
+<body>
+<form action="/mainpage" method="post">
+    <p><b>Выберите задачу</b></p>
+    <p>Задача №1<input name="task" type="radio" id="1" value="task1" onclick=choose('t1')></p>
+    <p>Задача №2<input name="task" type="radio" id="2" value="task2" onclick=choose('t2')></p>
+    <label id="l1"></label>
+    <p><b>Введите условия</b></p>
+    <div id="t1"><label> Array1 : <input type="text" name="array1"/> </label></div>
+    <div id="t2"><label> Array2 : <input type="text" name="array2"/> </label></div>
+    <div><input type="submit"/></div>
+</form>
+<br>
+<br>
+
+<a href="/download"></a>
+<form action="/download" method="POST">
+    <div hidden="hidden">
+        <input type="text" name="dtask">
+        <input type="text" name="darray1"/>
+        <input type="text" name="darray2"/>
+    </div>
+<input type="submit" onclick=getParameters() value="Сохранить файл с параметрами"/>
+</form>
+
+
+<br/>
+<br/>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="file" value="Выбрать">
+    <div><input type="submit" value="Загрузить"></div>
+</form>
+
+</body>
+</html>
