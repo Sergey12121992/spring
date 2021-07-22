@@ -39,4 +39,9 @@ public class MainController {
         return ResponseEntity.ok("Hello world!!!");
     }
 
+   @GetMapping
+   public ResponseEntity<String> controllerForTest() {
+        return ResponseEntity.ok("Test");
+   }
+
 }
