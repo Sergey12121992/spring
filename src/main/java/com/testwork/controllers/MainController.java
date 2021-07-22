@@ -34,9 +34,9 @@ public class MainController {
         return "answer";
     }
 
-   @GetMapping
-   public ResponseEntity<String> controllerForTest() {
-        return ResponseEntity.ok("Test");
-   }
+    @GetMapping("/")
+    public ResponseEntity<String> helloPage() {
+        return ResponseEntity.ok("Hello world!!!");
+    }
 
 }
