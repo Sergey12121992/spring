@@ -34,12 +34,12 @@ public class MainController {
         return "answer";
     }
 
-    @GetMapping("/task1")
+    @GetMapping("/branches/1")
     public ResponseEntity<String> task1() {
         return ResponseEntity.ok("Task1");
     }
 
-    @GetMapping("/task2")
+    @GetMapping("/branches/2")
     public ResponseEntity<String> task2() {
         return ResponseEntity.ok("Task2");
     }
