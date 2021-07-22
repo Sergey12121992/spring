@@ -1,6 +1,7 @@
 package com.testwork.controllers;
 
 import com.testwork.Task;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +32,11 @@ public class MainController {
             model.put("answ", task.getAnswer());
         }
         return "answer";
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<String> helloPage() {
+        return ResponseEntity.ok("Hello world!!!");
     }
 
 }
