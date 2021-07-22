@@ -34,4 +34,9 @@ public class MainController {
         return "answer";
     }
 
+    @GetMapping("/task2")
+    public ResponseEntity<String> task2() {
+        return ResponseEntity.ok("Task2");
+    }
+
 }
